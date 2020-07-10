@@ -9,15 +9,15 @@ import { render, fireEvent } from '@testing-library/react';
 const store = createStore(rootReducer);
 
 describe('Connected component full app integration tests', () => {
-  it('should add Todo item using fireEvent', () => {
+  it('should add Review item using fireEvent', () => {
     const { container, getByTestId, getByText } = render(
       <Provider store={store}>
         <App />
       </Provider>,
     );
-    const inputElement = getByTestId('add-todo-input');
+    const inputElement = getByTestId('add-review-input');
     fireEvent.change(inputElement, { target: { value: 'buy milk' } });
-    fireEvent.click(getByText('Add Todo'));
+    fireEvent.click(getByText('Add Review'));
 
     const liElement = container.querySelector('li');
 

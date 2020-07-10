@@ -1,25 +1,19 @@
 import { createStore } from 'redux';
 import rootReducer from '../../reducers';
-import { addTodo, toggleTodo } from '../../actions';
+import { addReview } from '../../actions';
 
 describe('Redux Store Integration Tests', () => {
   let store;
   beforeEach(() => {
     store = createStore(rootReducer);
   });
-  it('Should add one todo', () => {
-    store.dispatch(addTodo('buy milk'));
+  it('Should add one review', () => {
+    store.dispatch(addReview('Shaxx', 'This is Amazing!', 5));
     /* console.log(store.getState()); */
-    const todo = store.getState().todos.find((x) => x.text == 'buy milk');
-    expect(todo.text).toEqual('buy milk');
-    expect(todo.completed).toEqual(false);
-  });
-
-  it('Should toggle one todo', () => {
-    store.dispatch(addTodo('go shopping'));
-    store.dispatch(toggleTodo(1));
-    const todo = store.getState().todos.find((x) => x.text == 'go shopping');
-    expect(todo.text).toEqual('go shopping');
-    expect(todo.completed).toEqual(true);
+    const review = store.getState().reviews.find((x) => x.text == 'This is Amazing!');
+    expect(review.text).toEqual('This is Amazing!');
+    expect(review.date).toEqual(new Date().toUTCString());
+    expect(review.name).toEqual('Shaxx');
+    expect(review.rating).toEqual(5);
   });
 });
