@@ -5,8 +5,8 @@ const reviews = (state = [], action) => {
         ...state,
         {
           id: action.id,
+          name: action.name,
           text: action.text,
-          completed: false,
           rating: action.rating,
         },
       ];

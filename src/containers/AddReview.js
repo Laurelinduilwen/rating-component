@@ -4,6 +4,7 @@ import { addReview } from '../actions';
 import ReactRating from 'react-rating';
 
 const AddReview = ({ dispatch }) => {
+  let name;
   let input;
   const [rating, setRating] = useState(null);
   return (
@@ -11,16 +12,18 @@ const AddReview = ({ dispatch }) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          if (!input.value.trim() || !rating) {
+          if (!input.value.trim() || !name.value.trim() || !rating) {
             return;
           }
-          dispatch(addReview(input.value, rating));
+          dispatch(addReview(name.value, input.value, rating));
+          name.value = '';
           input.value = '';
         }}
       >
+        <input ref={(node) => (name = node)} data-testid="add-name-input" />
         <input ref={(node) => (input = node)} data-testid="add-review-input" />
         <button type="submit">Add Review</button>
-        <ReactRating initialRating={3} onChange={(e) => setRating(e)} />
+        <ReactRating initialRating={rating} onChange={(e) => setRating(e)} />
       </form>
     </div>
   );
