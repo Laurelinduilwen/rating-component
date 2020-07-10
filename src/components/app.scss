@@ -10,8 +10,8 @@ $secondary-font: 'Source Sans Pro', sans-serif;
 
 %shared-fonts-primary {
   color: white;
-  padding: 0.1em;
-  margin: 0.7em;
+  padding: 0.1em 0 0 0;
+  margin: 0.7 0 0 0em;
   text-shadow: 7px 7px 9px grey;
 }
 
@@ -23,11 +23,12 @@ $secondary-font: 'Source Sans Pro', sans-serif;
 }
 
 .hero {
-  max-height: 23vh;
+  max-height: 20vh;
   h1 {
     @extend %shared-fonts-primary;
     font-family: $primary-font;
-    font-size: 8vh;
+    font-size: 7vh;
     font-weight: bold;
+    margin: -1em 0 0 0em;
   }
 }
