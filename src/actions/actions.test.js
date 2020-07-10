@@ -1,26 +1,15 @@
 import * as actions from './index';
 
 describe('test suite for actions', () => {
-  it('Should create an action to add ToDo', () => {
-    const text = 'go shopping';
+  it('Should create an action to add Review', () => {
+    const text = 'this is amazing!';
     const expectedAction = {
-      type: 'ADD_TODO',
+      type: 'ADD_REVIEW',
       id: 0,
       text,
+      name,
+      rating,
     };
-    expect(actions.addTodo(text)).toEqual(expectedAction);
-  });
-
-  it('Should create an action to set visibility filter', () => {
-    const filter = 'SHOW_ALL';
-    expect(actions.setVisibilityFilter(filter).filter).toEqual('SHOW_ALL');
-  });
-
-  it('Should create an action to toggle a ToDo', () => {
-    const expectedAction = {
-      type: 'TOGGLE_TODO',
-      id: 0,
-    };
-    expect(actions.toggleTodo(0)).toEqual(expectedAction);
+    expect(actions.addReview(text)).toEqual(expectedAction);
   });
 });

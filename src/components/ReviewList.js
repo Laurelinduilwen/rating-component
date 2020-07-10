@@ -7,11 +7,11 @@ const ReviewList = ({ reviews }) => {
   console.log(average);
 
   return (
-    <ul>
+    <div>
       {reviews.map((review) => (
         <Review key={review.id} {...review} />
       ))}
-    </ul>
+    </div>
   );
 };
 
@@ -19,8 +19,10 @@ ReviewList.propTypes = {
   reviews: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };

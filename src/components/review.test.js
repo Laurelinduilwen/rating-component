@@ -1,5 +1,5 @@
 import React from 'react';
-import Todo from './Todo';
+import Review from './Review';
 import { configure, shallow, mount } from 'enzyme';
 
 import Enzyme from 'enzyme';
@@ -7,18 +7,17 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<Todo > component unit tests/', () => {
-  const mockFn = jest.fn();
-  const props = { onClick: mockFn, completed: false, text: 'buy milk' };
+describe('<Review > component unit tests/', () => {
+  const props = { name: 'Author', text: 'buy milk', rating: '4' };
 
   let component;
   beforeEach(() => {
-    component = shallow(<Todo {...props} />);
+    component = shallow(<Review {...props} />);
   });
 
-  it('should render 1 <Todo /> component', () => {
+  it('should render 1 <Review /> component', () => {
     expect(component).toHaveLength(1);
-    expect(component.find('li')).toHaveLength(1);
+    expect(component.find('div')).toHaveLength(1);
   });
 
   it('should render props correctly', () => {
@@ -30,14 +29,9 @@ describe('<Todo > component unit tests/', () => {
     component.setProps({ text: 'hello' });
     expect(component.props().children).toEqual('hello');
   });
-
-  it('shouldcall onclick handler when clicked', () => {
-    component.simulate('click');
-    expect(mockFn).toHaveBeenCalledTimes(1);
-  });
 });
 
-describe('<Todo /> styling behaviour', () => {
+describe('<Review /> styling behaviour', () => {
   const mockFn = jest.fn();
   it('should not have linethrough when ToDo is incomplete', () => {
     const component = shallow(<Todo onClick={mockFn} completed={false} text={'go shopping'} />);

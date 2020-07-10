@@ -5,6 +5,7 @@ const reviews = (state = [], action) => {
         ...state,
         {
           id: action.id,
+          date: action.date,
           name: action.name,
           text: action.text,
           rating: action.rating,

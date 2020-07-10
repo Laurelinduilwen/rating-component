@@ -1,71 +1,57 @@
-import todos from './todos';
+import reviews from './reviews';
 
-describe('Todos Reducer Unit Tests', () => {
+describe('Reviews Reducer Unit Tests', () => {
   it('shold return an empty array when initial state and action is undefined', () => {
-    expect(todos(undefined, {})).toEqual([]);
+    expect(reviews(undefined, {})).toEqual([]);
   });
 
-  it('shold update initial state by adding 1 ToDo item to the list', () => {
-    const addTodoAction = {
-      type: 'ADD_TODO',
+  it('shold update initial state by adding 1 Review item to the list', () => {
+    const addReviewAction = {
+      type: 'ADD_REVIEW',
       id: 1,
-      text: 'buy milk',
+      name: 'author',
+      text: 'this sucks',
+      rating: 1,
     };
-    expect(todos([], addTodoAction)).toEqual([
+    expect(reviews([], addReviewAction)).toEqual([
       {
-        completed: false,
         id: 1,
-        text: 'buy milk',
+        name: 'author',
+        text: 'this sucks',
+        rating: 1,
       },
     ]);
   });
 
-  it('shold update initial state by adding the 2nd ToDo item to the list', () => {
+  it('shold update initial state by adding the 2nd Review item to the list', () => {
     const initialState = [
       {
         id: 1,
-        text: 'buy milk',
-        completed: false,
+        name: 'author',
+        text: 'this sucks',
+        rating: 1,
       },
     ];
 
-    const addTodoAction = {
-      type: 'ADD_TODO',
+    const addReviewAction = {
+      type: 'ADD_REVIEW',
       id: 2,
-      text: 'go shopping',
+      name: 'author 2',
+      text: 'this is amazing!',
+      rating: 5,
     };
-    expect(todos(initialState, addTodoAction)).toEqual([
+    expect(reviews(initialState, addReviewAction)).toEqual([
       {
-        completed: false,
         id: 1,
-        text: 'buy milk',
+        name: 'author',
+        text: 'this sucks',
+        rating: 1,
       },
       {
-        completed: false,
         id: 2,
-        text: 'go shopping',
-      },
-    ]);
-  });
-
-  it('toggle incomlete todo to complete', () => {
-    const initialState = [
-      {
-        id: 1,
-        text: 'buy milk',
-        completed: false,
-      },
-    ];
-
-    const toggleTodoAction = {
-      type: 'TOGGLE_TODO',
-      id: 1,
-    };
-    expect(todos(initialState, toggleTodoAction)).toEqual([
-      {
-        completed: true,
-        id: 1,
-        text: 'buy milk',
+        name: 'author 2',
+        text: 'this is amazing!',
+        rating: 5,
       },
     ]);
   });
