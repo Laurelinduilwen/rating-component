@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import ReactRating from 'react-rating';
 
 const Review = ({ date, name, text, rating }) => (
-  <>
-    <li>Name={name}</li>
-    <li>Created at={date}</li>
-    <li> Review={text}</li>
-    {/* <ReactRating initialRating={rating} readonly /> */}
-    <li> Rating={rating}</li>
-  </>
+  <div>
+    <p>Name={name}</p>
+    <p>Created at={date}</p>
+    <p>Review={text}</p>
+    <ReactRating initialRating={rating} readonly />
+    <p>Rating={rating}</p>
+  </div>
 );
 
 Review.propTypes = {

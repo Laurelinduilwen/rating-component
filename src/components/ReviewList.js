@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Review from './Review';
 
 const ReviewList = ({ reviews }) => {
-  const average = reviews.reduce((total, next) => total + next.rating, 0) / reviews.length;
-  console.log(average);
-
   return (
     <div>
-      {reviews.map((review) => (
-        <Review key={review.id} {...review} />
-      ))}
+      <h3>Reviews:</h3>
+      {!reviews[0] ? (
+        <p> There are no reviews for this product</p>
+      ) : (
+        reviews.map((review) => <Review key={review.id} {...review} />)
+      )}
     </div>
   );
 };
