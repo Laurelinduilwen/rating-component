@@ -1,0 +1,33 @@
+@import '~bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/base/_all.sass';
+@import '~bulma/sass/layout/_all.sass';
+@import '~bulma/sass/elements/_all.sass';
+@import '~bulma/sass/components/_all.sass';
+@import '~bulma/sass/form/_all.sass';
+
+$primary-font: 'Libre Baskerville', serif;
+$secondary-font: 'Source Sans Pro', sans-serif;
+
+%shared-fonts-primary {
+  color: white;
+  padding: 0.1em;
+  margin: 0.7em;
+  text-shadow: 7px 7px 9px grey;
+}
+
+%shared-fonts-secondary {
+  color: beige;
+  margin: 1em;
+  font-size: 17px;
+  word-spacing: normal;
+}
+
+.hero {
+  max-height: 23vh;
+  h1 {
+    @extend %shared-fonts-primary;
+    font-family: $primary-font;
+    font-size: 8vh;
+    font-weight: bold;
+  }
+}

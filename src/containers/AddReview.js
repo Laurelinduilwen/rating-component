@@ -8,7 +8,7 @@ const AddReview = ({ dispatch }) => {
   let input;
   const [rating, setRating] = useState(null);
   return (
-    <div>
+    <div className="field">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -20,10 +20,33 @@ const AddReview = ({ dispatch }) => {
           input.value = '';
         }}
       >
-        <input ref={(node) => (name = node)} data-testid="add-name-input" />
-        <input ref={(node) => (input = node)} data-testid="add-review-input" />
-        <button type="submit">Add Review</button>
-        <ReactRating initialRating={rating} onChange={(e) => setRating(e)} />
+        <label className="label">Name</label>
+
+        <input
+          className="input"
+          type="text"
+          placeholder="Please enter a display name"
+          ref={(node) => (name = node)}
+          data-testid="add-name-input"
+        />
+        <label className="label">Your Rating:</label>
+        <ReactRating
+          emptySymbol="fa fa-star-o fa-2x "
+          fullSymbol="fa fa-star fa-2x "
+          initialRating={rating}
+          onChange={(e) => setRating(e)}
+        />
+
+        <label className="label">Review</label>
+        <textarea
+          className="textarea"
+          placeholder="Please enter your review"
+          ref={(node) => (input = node)}
+          data-testid="add-review-input"
+        />
+        <button className="button is-link" type="submit">
+          Add Review
+        </button>
       </form>
     </div>
   );

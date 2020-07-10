@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import ReactRating from 'react-rating';
 
 const Review = ({ date, name, text, rating }) => (
-  <div>
-    <p>Name={name}</p>
-    <p>Created at={date}</p>
-    <p>Review={text}</p>
-    <ReactRating initialRating={rating} readonly />
-    <p>Rating={rating}</p>
+  <div className="card">
+    <div className="card-content">
+      <p className="card-header-title">{name}</p>
+      <p>Created at={date}</p>
+      <p>Review={text}</p>
+      <ReactRating
+        emptySymbol="fa fa-star-o fa-2x "
+        fullSymbol="fa fa-star fa-2x "
+        initialRating={rating}
+        readonly
+      />
+      <p>Rating={rating}</p>
+    </div>
   </div>
 );
 
