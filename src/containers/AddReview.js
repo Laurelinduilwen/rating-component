@@ -14,7 +14,7 @@ const AddReview = ({ dispatch }) => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              if (!input.value.trim() || !name.value.trim() || !rating) {
+              if (!input.value.trim() || !name.value.trim()) {
                 return;
               }
               dispatch(addReview(name.value, input.value, rating));

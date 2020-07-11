@@ -15,12 +15,16 @@ describe('Connected component full app integration tests', () => {
         <App />
       </Provider>,
     );
-    const inputElement = getByTestId('add-review-input');
-    fireEvent.change(inputElement, { target: { value: 'buy milk' } });
+    const inputElement = getByTestId('add-name-input');
+    const inputElement2 = getByTestId('add-review-input');
+    fireEvent.change(inputElement, { target: { value: 'Shaxx' } });
+    fireEvent.change(inputElement2, { target: { value: 'This is Amazing!' } });
     fireEvent.click(getByText('Add Review'));
 
-    const liElement = container.querySelector('li');
+    const pElement = getByTestId('test-name-input');
 
-    expect(liElement.textContent).toBe('buy milk');
+    expect(pElement.textContent).toBe('Shaxx');
   });
+
+  //there is a major problem that I need to solve here. Right now I cannot simulate the rating function -_-
 });

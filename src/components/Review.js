@@ -5,7 +5,9 @@ import ReactRating from 'react-rating';
 const Review = ({ date, name, text, rating }) => (
   <div className="card">
     <div className="card-content">
-      <p className="card-header-title">{name}</p>
+      <p className="card-header-title" data-testid="test-name-input">
+        {name}
+      </p>
       <p>Created at={date}</p>
       <p>Review={text}</p>
       <ReactRating

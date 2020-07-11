@@ -11,7 +11,7 @@ const Product = ({ reviews }) => {
     <div className="tile">
       <div className="tile is-parent">
         <article className="tile is-child notification">
-          <figure class="image is-2by3">
+          <figure className="image is-2by3">
             <img className="wild-link" src={WildLink} alt="wildLink"></img>
           </figure>
         </article>
@@ -49,9 +49,5 @@ const Product = ({ reviews }) => {
 const mapStateToProps = (state) => ({
   reviews: state.reviews,
 });
-
-Product.propTypes = {
-  rating: PropTypes.number.isRequired,
-};
 
 export default connect(mapStateToProps)(Product);
