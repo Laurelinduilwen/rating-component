@@ -7,19 +7,22 @@ import './app.scss';
 const App = () => {
   return (
     <>
-      <section className="hero is-medium is-danger is-bold">
+      <section className="hero is-small is-danger is-bold">
         <div className="hero-body is-small">
           <div className="container">
-            <h1 className="title">Primary bold title</h1>
-            <h2 className="subtitle">Primary bold subtitle</h2>
+            <h1 className="title">Laurelin's Shop</h1>
+            <h2 className="subtitle">for your Hylian oddities</h2>
           </div>
         </div>
       </section>
-      <section className="App section">
-        <Product />
-        <AddReview />
+      <div className="tile is-ancestor">
+        <div className="tile is-vertical is-9">
+          <Product />
+          <AddReview />
+        </div>
+
         <VisibleReviewList />
-      </section>
+      </div>
     </>
   );
 };

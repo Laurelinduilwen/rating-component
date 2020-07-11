@@ -4,13 +4,18 @@ import Review from './Review';
 
 const ReviewList = ({ reviews }) => {
   return (
-    <div>
-      <h3>Reviews:</h3>
-      {!reviews[0] ? (
-        <p> There are no reviews for this product</p>
-      ) : (
-        reviews.map((review) => <Review key={review.id} {...review} />)
-      )}
+    <div className="tile is-parent">
+      <article className="tile is-child notification ">
+        <h3 className="title is-3">User Reviews:</h3>
+        {!reviews[0] ? (
+          <>
+            <p className="subtitle is-5"> No reviews for this product yet</p>
+            <p className="subtitle is-5"> Be the first to review</p>
+          </>
+        ) : (
+          reviews.map((review) => <Review key={review.id} {...review} />)
+        )}
+      </article>
     </div>
   );
 };
